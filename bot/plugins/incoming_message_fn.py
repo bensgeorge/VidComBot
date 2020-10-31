@@ -39,7 +39,7 @@ from bot.helper_funcs.utils import(
         
 async def incoming_start_message_f(bot, update):
     """/start command"""
-    if update.from_user.id not in AUTH_USERS:
+    if update.from_user.id in AUTH_USERS:
         await update.message.delete()
         return
     # LOGGER.info(update)
@@ -52,7 +52,7 @@ async def incoming_start_message_f(bot, update):
 async def incoming_compress_message_f(bot, update):
   """/compress command"""
     
-  if update.from_user.id not in AUTH_USERS:
+  if update.from_user.id in AUTH_USERS:
     try:
       await update.message.delete()
     except:
